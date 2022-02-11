@@ -132,3 +132,69 @@ const engineerDetails = () => {
         addDetails();
     })
 };
+
+// Intern Questions for teamMemberArr
+const internDetails = () => {
+    return inquirer.prompt ([{
+        type: "input",
+        name: "internname",
+        message: "Please enter the Intern's name.",
+        validate: internameInput => {
+            if(internameInput) {
+                return true;
+            }
+            else {
+                console.log("Please enter the Intern's name.");
+                return false;
+            }}
+        },
+        {
+            type: "input",
+            name: "internid",
+            message: "Please enter the Intern's ID.",
+            validate: internidInput => {
+                if(internidInput > 0) {
+                    return true;
+                }
+                else {
+                    console.log("Please enter a number larger than 0.");
+                    return false;
+                }
+            }
+        },
+        {
+            type: "input",
+            name: "school",
+            message: "Please enter the School the Intern attends.",
+            validate: schoolInput => {
+                if(schoolInput) {
+                    return true;
+                }
+                else {
+                    console.log("Please enter a school name or N/A if no school is attended.");
+                    return false;
+                }
+            }
+        },
+        {
+            type: "input",
+            name: "internemail",
+            message: "Please enter the Intern's email address.",
+            validate: internemailInput => {
+                format = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(emailInput);
+                if(format) {
+                    return true;
+                }
+                else {
+                    console.log(" Please enter a valid email address for the Intern.");
+                    return false; 
+                }
+        },
+    }])
+    .then(interPromptDetails => {
+        const { intername, internid, school, internemail } = internPromptDetails
+        const intern = new Intern(internname, internid, school, internemail);
+        teamMemberArr.push(intern);
+        addDetails();
+    })
+};
