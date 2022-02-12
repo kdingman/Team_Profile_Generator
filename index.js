@@ -224,3 +224,9 @@ const addDetails = () => {
         }
     });
 };
+
+const init = () => {
+    managerDetails()
+};
+
+init();
