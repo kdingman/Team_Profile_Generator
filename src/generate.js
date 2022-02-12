@@ -75,12 +75,12 @@ function generateHtmlPage(teamMemberArr) {
         }
     }
 
-    const emmployeeCardArr = cardArr.join('');
-    return generateHTML(emmployeeCardArr);
+    const employeeCardArr = cardArr.join('');
+    return generateHTML(employeeCardArr);
 }
 
 // Create index.html
-function generateHTML(emmployeeCardArr) {
+function generateHTML(employeeCardArr) {
     return `
     <!DOCTYPE html>
 <html lang="en">
@@ -102,7 +102,7 @@ function generateHTML(emmployeeCardArr) {
 
     <div class="container-fluid">
         <section class="row justify-content-center">
-        ${emmployeeCardArr}
+        ${employeeCardArr}
         </section>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
