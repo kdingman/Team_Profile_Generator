@@ -6,7 +6,7 @@ const teamMemberArr = [];
 // Manager Questions for teamMemberArr
 const managerDetails = () => {
     return inquirer.prompt([{
-        type: 'input',
+        type: "input",
         name: "name",
         message: "Please enter the Team Manager's name",
         validate: nameInput => {
@@ -197,4 +197,30 @@ const internDetails = () => {
         teamMemberArr.push(intern);
         addDetails();
     })
+};
+
+// Where to choose the employee type
+const addDetails = () => {
+    return inquirer.prompt([{
+        type: "list",
+        name: "employeetype",
+        message: "Please select the type of employee you would like to add to your team.",
+        choices: ["Engineer", "Intern", "I do not need to add anyone else" ]
+    }])
+    .then((selection) => {
+        let selection = selection.option;
+        if(selection === "Engineer") {
+            engineerDetails();
+        }
+        else if(selection === "Intern") {
+            internDetails();
+        }
+        else {
+            fs.writeFile(".dist/index.html", generateHtmlPage(teamMemberArr), (err) => {
+                if(err)
+                throw err;
+                console.log("Successfully created Team Profile page!");
+            })
+        }
+    });
 };
