@@ -17,45 +17,11 @@
     </header>
 
 
-    <main class="container">
-        <div class="row">
-            <div class="my-team col-12 d-flex justify-content-center">
-<!-- Manager Card -->
-            <div class="col-4 mb-3">
-            <div class="card shadow p-3 mb-5 bg-body rounded" style="width: 16rem;"></div>
-            <div class="card-title bg-secondary text-center text-white">
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">ID:</li>
-                    <li class="list-group-item">Office Number:</li>
-                    <li class="list-group-item">Email:</li>
-                </ul>
-            </div>
-                </div>
-    <!-- Engineer Card -->
-            <div class="col-4 mb-3">
-            <div class="card shadow p-3 mb-5 bg-body rounded" style="width: 16rem;"></div>
-            <div class="card-title bg-secondary text-center text-white">
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">ID:</li>
-                    <li class="list-group-item">GitHub:</li>
-                    <li class="list-group-item">Email:</li>
-                </ul>
-            </div>
-            </div>
-    <!-- Intern Card -->
-            <div class="col-4 mb-3">
-            <div class="card shadow p-3 mb-5 bg-body rounded" style="width: 16rem;"></div>
-            <div class="card-title bg-secondary text-center text-white">
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">ID:</li>
-                    <li class="list-group-item">School Name:</li>
-                    <li class="list-group-item">Email:</li>
-                </ul>
-            </div>
-            </div>
-            </div>
-        </div>
-    </main>
+    <div class="container-fluid">
+        <section class="row justify-content-center">
+        ${employeeCardArr}
+        </section>
+    </div>
 
 </body>
 
