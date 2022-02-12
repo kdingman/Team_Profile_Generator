@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/kdingman/Team_Profile_Generator/issues"
   },
-  "homepage": "https://github.com/kdingman/Team_Profile_Generator#readme"
+  "homepage": "https://github.com/kdingman/Team_Profile_Generator#readme",
+  "dependencies": {
+    "bootstrap": "^5.1.3"
+  }
 }
