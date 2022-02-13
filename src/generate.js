@@ -2,16 +2,16 @@
 function addManager(manager){
     return `
     <div class="col-4 mb-3">
-            <div class="card shadow p-3 mb-5 bg-body rounded" style="width: 16rem;"></div>
-            <div class="card-title bg-secondary text-center text-white">
+            <div class="card h-100"></div>
+            <div class="card-header">
             <h2>${manager.name}</h2>
             <h4 class="sub-title"><i class="fa-light fa-clipboard-list-check"></i>Manager</h4>
     </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">ID:${manager.id}</li>
-            <li class="list-group-item">Office Number:${manager.officenumber}</li>
-            <li class="list-group-item">Email:<a href="mailto:${manager.email}">${manager.email}</a></li>
-        </ul>
+        <div class="class-body">
+            <p class="id">ID:${manager.id}</p>
+            <p class="officenumber">Office Number:${manager.officenumber}</p>
+            <p class="email">Email: <a href="mailto:${manager.email}">${manager.email}</a></p>
+        </div>
     </div>
     </div>
     `;
@@ -21,16 +21,16 @@ function addManager(manager){
 function addEngineer(engineer){
     return `
     <div class="col-4 mb-3">
-            <div class="card shadow p-3 mb-5 bg-body rounded" style="width: 16rem;"></div>
-            <div class="card-title bg-secondary text-center text-white">
+            <div class="card h-100"></div>
+            <div class="card-header">
             <h2>${engineer.name}</h2>
             <h4 class="sub-title"><i class="fa-light fa-code-merge"></i>Engineer</h4>
     </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">ID:${engineer.id}</li>
-            <li class="list-group-item">Github:<a href="https://github.com/${engineer.github}">${engineer.github}</a></li>
-            <li class="list-group-item">Email:<a href="mailto:${engineer.email}">${engineer.email}</a></li>
-        </ul>
+        <div class="class-body">
+            <p class="id">ID:${engineer.id}</p>
+            <p class="github">Github: <a href="https://github.com/${engineer.github}">${engineer.github}</a></p>
+            <p class="email">Email: <a href="mailto:${engineer.email}">${engineer.email}</a></p>
+        </div>
     </div>
     </div>
     `;
@@ -40,16 +40,16 @@ function addEngineer(engineer){
 function addIntern(intern) {
     return `
     <div class="col-4 mb-3">
-            <div class="card shadow p-3 mb-5 bg-body rounded" style="width: 16rem;"></div>
-            <div class="card-title bg-secondary text-center text-white">
+            <div class="card h-100"></div>
+            <div class="card-header">
             <h2>${intern.name}</h2>
             <h4 class="sub-title"><i class="fa-light fa-user-graduate"></i>Intern</h4>
     </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">ID:${intern.id}</li>
-            <li class="list-group-item">School:${intern.school}</li>
-            <li class="list-group-item">Email:<a href="mailto:${intern.email}">${intern.email}</a></li>
-        </ul>
+        <div class="class-body">
+            <p class="id">ID:${intern.id}</p>
+            <p class="school">School:${intern.school}</p>
+            <p class="email">Email: <a href="mailto:${intern.email}">${intern.email}</a></p>
+        </div>
     </div>
     </div>
     `;
@@ -96,14 +96,14 @@ function generateHTML(employeeCardArr) {
 
 </head>
 <body>
-    <header class="jumbotron text-center bg-secondary text-white">
+    <header class="jumbotron text-center text-white">
         <h1>My Team</h1>
     </header>
 
-    <div class="container-fluid">
-        <section class="row justify-content-center">
+    <div class="container">
+        <div class="row justify-content-center" id="team-cards">
         ${employeeCardArr}
-        </section>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </html>
