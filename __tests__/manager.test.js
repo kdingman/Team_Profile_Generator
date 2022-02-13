@@ -1,8 +1,6 @@
 // pulls Manager Constructor
 const Manager = require("../lib/manager");
 
-//jest.mock("../lib/manager");
-
 // creates a manager object
 test("should create a manager object", () => {
     const manager = new Manager("Brian", 12, 1, "brian@yahoo.com");

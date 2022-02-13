@@ -1,8 +1,6 @@
 // pulls from the Intern Constructor
 const Intern = require("../lib/intern");
 
-//jest.mock("../lib/intern");
-
 // creates an intern object
 test("create an intern object", () => {
     const intern = new Intern("Kelly", 39, "Ball State University", "kcdonlan@yahoo.com");

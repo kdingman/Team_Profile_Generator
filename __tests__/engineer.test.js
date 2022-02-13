@@ -1,7 +1,6 @@
 // pulls Engineer constructo
 const Engineer = require("../lib/engineer");
 
-//jest.mock("../lib/engineer");
 
 // creates and engineer object
 test("should create an engineer object", () => {
