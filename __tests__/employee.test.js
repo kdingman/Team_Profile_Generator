@@ -2,13 +2,6 @@ const Employee = require("../lib/employee");
 
 jest.mock("../lib/employee");
 
-// describe ("Employee", () => {
-
-// test("Initialize", () => {
-//     const employee = new Employee();
-//     expect(typeof employee).toBe("object");
-// });
-
 test("should create a new employee object", () => {
     const employee = new Employee("Morgan", 10, "morgan@yahoo.com");
 
@@ -25,6 +18,7 @@ test("should generate employee name", () => {
 
 test("should generate employee id", () => {
     const employee = new Employee("Morgan", 10, "morgan@yahoo.com");
+    
     expect(employee.getId()).toEqual(expect.any(Number));
 });
 
