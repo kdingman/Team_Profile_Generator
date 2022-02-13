@@ -6,7 +6,8 @@ const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
 const Manager = require("./lib/manager");
 
-const generate = require("./src/generate");
+const generateHtmlPage = require("./src/generateHtmlPage");
+
 
 const teamMemberArr = [];
 
@@ -56,8 +57,8 @@ const managerDetails = () => {
             name: "email",
             message: "Please enter the Team Manager's email address.",
             validate: emailInput => {
-                format = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(emailInput);
-                if(format) {
+                valid = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(emailInput);
+                if(valid) {
                     return true;
                 }
                 else {
@@ -122,8 +123,8 @@ const engineerDetails = () => {
             name: "engineeremail",
             message: "Please enter the Engineer's email address.",
             validate: engineeremailInput => {
-                format = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(emailInput);
-                if(format) {
+                valid = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(engineeremailInput);
+                if(valid) {
                     return true;
                 }
                 else {
@@ -188,8 +189,8 @@ const internDetails = () => {
             name: "internemail",
             message: "Please enter the Intern's email address.",
             validate: internemailInput => {
-                format = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(emailInput);
-                if(format) {
+                valid = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(internemailInput);
+                if(valid) {
                     return true;
                 }
                 else {
@@ -198,8 +199,8 @@ const internDetails = () => {
                 }
         },
     }])
-    .then(interPromptDetails => {
-        const { intername, internid, school, internemail } = internPromptDetails
+    .then(internPromptDetails => {
+        const { internname, internid, school, internemail } = internPromptDetails
         const intern = new Intern(internname, internid, school, internemail);
         teamMemberArr.push(intern);
         addDetails();
@@ -212,10 +213,10 @@ const addDetails = () => {
         type: "list",
         name: "employeetype",
         message: "Please select the type of employee you would like to add to your team.",
-        choices: ["Engineer", "Intern", "I do not need to add anyone else" ]
+        choices: ["Engineer", "Intern", "I do not need to add anyone other employees" ]
     }])
     .then((selection) => {
-        let selection = selection.option;
+        var selection = selection.employeetype;
         if(selection === "Engineer") {
             engineerDetails();
         }
@@ -223,10 +224,15 @@ const addDetails = () => {
             internDetails();
         }
         else {
-            fs.writeFile(".dist/index.html", generateHtmlPage(teamMemberArr), (err) => {
-                if(err)
-                throw err;
-                console.log("Successfully created Team Profile page!");
+            fs.writeFile("./dist/index.html", generateHtmlPage(teamMemberArr), (err) => {
+                if(err) {
+                    console.log(err);
+                    return;
+                }
+                else {
+                    console.log("Successfully created Team Profile page!");
+                };
+                
             })
         }
     });
