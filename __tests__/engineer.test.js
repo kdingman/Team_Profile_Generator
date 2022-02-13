@@ -1,8 +1,7 @@
 const Engineer = require("../lib/engineer");
 
-jest.mock("./lib/engineer");
+jest.mock("../lib/engineer");
 
-describe("Engineer", () => {
     test("should generate engineer name", () => {
         const engineer = new Engineer("Caleb");
         expect(engineer.name).toBe("Caleb");
@@ -25,6 +24,5 @@ describe("Engineer", () => {
 
     test("Should generate the employee details", () => {
         const engineer = new Engineer("Caleb", 6, "gihub", "caleb@yahoo.com");
-        expect(engineer.getEmployeeType).toEqual("Engineer");
+        expect(engineer.getEmployeeType()).toEqual("Engineer");
     });
-});
