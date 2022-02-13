@@ -24,6 +24,7 @@ describe("Intern" , () => {
     })
 
     test("Should generate employee details", () => {
+        const intern = new Intern("Kelly", 39, "Ball State", "kelly@yahoo.com");
         expect(intern.getEmployeeType()).toEqual("Intern");
     });
 });
