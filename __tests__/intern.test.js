@@ -2,27 +2,20 @@ const Intern = require("../lib/intern");
 
 jest.mock("../lib/intern");
 
-    test("should genereate intern's name", () => {
-        const intern = new Intern("Kelly");
-        expect(intern.name).toBe("Kelly");
-    });
+test("create an intern object", () => {
+    const intern = new Intern("Kelly", 39, "Ball State University", "kcdonlan@yahoo.com");
 
-    test("should generate intern's ID", () => {
-        const intern = new Intern("Kelly");
-        expect(intern.id).toEqual(expect.any(Number));
-    });
+    expect(intern.school).toEqual(expect.any(String));
+});
 
-    test("Should generate the school name", () => {
-        const intern = new Intern("Kelly");
-        expect(intern.getSchool()).toEqual(expect.any(String));        
-    });
+test("pulls interns school", () => {
+    const intern = new Intern("Kelly", 39, "Ball State University", "kcdonlan@yahoo.com");
 
-    test("should generate intern's email address", () => {
-        const intern = new Intern("Kelly");
-        expect(intern.email).toEqual(expect.any(String));
-    })
+    expect(intern.getSchool()).toEqual(expect.stringContaining(intern.school.toString()));
+});
 
-    test("Should generate employee details", () => {
-        const intern = new Intern("Kelly", 39, "Ball State", "kelly@yahoo.com");
-        expect(intern.getEmployeeType()).toEqual("Intern");
-    });
+test("Should generate employee details", () => {
+    const intern = new Intern("Kelly", 39, "Ball State University", "kcdonlan@yahoo.com");
+    
+    expect(intern.getEmployeeType()).toEqual("Intern");
+});
